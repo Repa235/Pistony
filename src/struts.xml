@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="false" />
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="Home" class="it.unirc.pistony.Action.Generali.Home">
+			<result>WEB-INF/Generali/index.jsp</result>
+		</action>
+	</package>
+
+<include file="it/unirc/pistony/Action/Generali/Generali.xml"></include> 
+<include file="it/unirc/pistony/Action/Titolare/Titolare.xml"></include>
+<include file="it/unirc/pistony/Action/Cliente/Cliente.xml"></include>
+
+ <constant name="struts.multipart.saveDir" value="/Pistony/WebContent/assets/img/imgProdotti" />
+
+
+
+</struts>

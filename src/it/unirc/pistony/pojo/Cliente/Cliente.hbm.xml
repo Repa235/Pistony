@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.Cliente">
+	<class name="Cliente" table="cliente">
+
+		<id name="idcliente" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property type="string" length="20" name="nome" />
+
+		<property type="string" length="20" name="cognome" />
+
+		<property name="cfPiva" type="string" length="16" />
+		
+		<property name="telefono" type="string" length="16" />
+		
+
+
+		<component name="indirizzo"
+			class="it.unirc.pistony.pojo.Cliente.Indirizzo">
+			<property name="via" column="indirizzo_via" type="string" />
+			<property name="civico" column="indirizzo_civico"
+				type="string" />
+		</component>
+
+
+		<one-to-one
+			class="it.unirc.pistony.pojo.Accountcliente.Accountcliente"
+			name="accountcliente" cascade="all" lazy="false"/>
+	</class>
+</hibernate-mapping>

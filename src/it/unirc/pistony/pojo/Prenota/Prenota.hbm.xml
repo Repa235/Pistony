@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pistony.pojo.Prenota">
+<class name="Prenota" table="prenota">
+        <id name="idprenota" type="int">
+            <column name="idprenota"/>
+            <generator class="increment"/>
+        </id>
+        
+        <many-to-one class="it.unirc.pistony.pojo.Cliente.Cliente" name="cliente" not-null="true" cascade="save-update" lazy="proxy">
+            <column name="idcliente" precision="10" scale="0"/>
+        </many-to-one>
+        
+        <property  name="descrizione" type="string" length="45" />
+        
+        <set  name="interventi" cascade="save-update">
+            <key column="idprenotazione"/>
+            <one-to-many class="it.unirc.pistony.pojo.Intervento.Intervento"/>
+        </set>
+    </class>
+</hibernate-mapping>

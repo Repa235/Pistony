@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.Acquisto">
+	<class name="Acquisto" table="acquisto">
+
+		<composite-id
+			class="it.unirc.pistony.pojo.Acquisto.AcquistoId" name="id">
+			<key-property name="idacquisto" type="int">
+				<column name="idacquisto" />
+			</key-property>
+
+			<key-property name="idcliente" type="int">
+				<column name="idcliente" />
+			</key-property>
+			
+			<key-property name="idcomponente" type="int">
+				<column name="idcomponente" />
+			</key-property>
+		</composite-id>
+
+
+
+		<property name="data" type="date" />
+
+		<property name="quantAcquistata" type="java.lang.Integer" />
+
+	</class>
+</hibernate-mapping>
+
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="Cliente" namespace="/AreaCliente"
+		extends="struts-default">
+
+		<interceptors>
+			<interceptor name="InterceptorCliente"
+				class="it.unirc.pistony.util.InterceptorCliente" />
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="InterceptorCliente" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="secureStack" />
+
+		<global-results>
+			<result name="genericException">/WEB-INF/AreaCliente/errore.jsp</result>
+			<result name="login" type="redirect">/WEB-INF/Generali/index.jsp</result>
+			<result type="redirect" name="login"> /RichiediRegistrazione </result>
+		</global-results>
+
+		<action name="ProfiloCliente"
+			class="it.unirc.pistony.Action.Cliente.ProfiloCliente">
+			<result name="success">/WEB-INF/AreaCliente/areaCliente.jsp
+			</result>
+			<result name="input">/WEB-INF/Generali/registrazione.jsp </result>
+		</action>
+
+		<action name="RichiediModificaCliente"
+			class="it.unirc.pistony.Action.Cliente.RichiediModificaCliente">
+			<result name="success">/WEB-INF/AreaCliente/modificaCliente.jsp
+			</result>
+		</action>
+
+		<action name="ModificaCliente"
+			class="it.unirc.pistony.Action.Cliente.ModificaCliente">
+			<result type="redirect" name="success">/AreaCliente/ProfiloCliente
+			</result>
+			<result name="input">/WEB-INF/AreaCliente/modificaCliente.jsp
+			</result>
+		</action>
+
+		<action name="Inserisciprenota"
+			class="it.unirc.pistony.Action.Cliente.Inserisciprenota">
+			<result type="redirect" name="success">/AreaCliente/ProfiloCliente
+			</result>
+			<result name="input">/WEB-INF/AreaCliente/areaCliente.jsp
+			</result>
+		</action>
+
+		<action name="AggiungiAlCarrello"
+			class="it.unirc.pistony.Action.Cliente.AggiungiAlCarrello">
+			<result name="success" type="redirect">/Shop </result>
+			<result name="input" type="redirect">/Shop </result>
+		</action>
+		<action name="VisualizzaCarrello"
+			class="it.unirc.pistony.Action.Cliente.VisualizzaCarrello">
+			<result name="success">/WEB-INF/AreaCliente/VisualizzaCarrello.jsp
+			</result>
+		</action>
+		<action name="EliminaDalCarrello"
+			class="it.unirc.pistony.Action.Cliente.EliminaDalCarrello">
+			<result name="success" type="redirect">/Shop
+			</result>
+		</action>
+
+		<action name="SuccessoAcquisto"
+			class="it.unirc.pistony.Action.Cliente.SuccessoAcquisto">
+			<result name="success">/WEB-INF/AreaCliente/successoAcquisto.jsp
+			</result>
+		</action>
+
+		<action name="VisualizzaSchedaOrdine"
+			class="it.unirc.pistony.Action.Cliente.VisualizzaSchedaOrdine">
+			<result name="success">/WEB-INF/AreaCliente/visualizzaOrdine.jsp
+			</result>
+		</action>
+
+	</package>
+</struts>

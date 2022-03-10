@@ -1,0 +1,56 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<!-- apri con il tag validator -->
+<validators>
+
+	<!-- specifica i campi che vuoi validare con field name -->
+
+
+<field name="meccanico.nome">
+		<field-validator type="requiredstring">
+			<message key="nome.required"/>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<message>Il nome inserito non è abbastanza lungo
+			</message>
+		</field-validator>
+		<field-validator type="NameSurname">
+			<message>Questo nome non è valido
+			</message>
+		</field-validator>
+	</field>
+
+	<field name="meccanico.cognome">
+		<field-validator type="requiredstring">
+			<message key="cognome.required"/>
+		</field-validator>
+		<field-validator type="NameSurname">
+			<message>Questo cognome non è valido
+			</message>
+		</field-validator>
+	</field>
+
+<field name="meccanico.indirizzo">
+		<field-validator type="requiredstring">
+			<message> Indirizzo necessario </message>
+		</field-validator>
+	</field>
+	
+	<field name="meccanico.tipoContratto">
+		<field-validator type="requiredstring">
+			<message> Tipologia contratto mancante </message>
+		</field-validator>
+	</field>
+	
+		<field name="meccanico.settore">
+		<field-validator type="requiredstring">
+			<message>Inserire settore</message>
+		</field-validator>
+	</field>
+
+
+
+
+</validators>

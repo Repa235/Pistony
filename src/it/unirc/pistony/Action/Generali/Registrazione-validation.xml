@@ -1,0 +1,89 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+
+<field name="accountcliente.password">
+		<field-validator type="requiredstring">
+			<message> Password obbligatoria </message>
+		</field-validator>
+		<field-validator type="PasswordStrenght">
+			<message>la password deve contenere tra 8 e 16 caratteri tra: lettere (maiuscole e minuscole), numeri e caratteri speciali.
+			</message>
+		</field-validator>
+	</field>
+	
+ 
+	<field name="accountcliente.email">
+		<field-validator type="requiredstring">
+			<message>Devi inserire l'email.</message>
+		</field-validator>
+
+		<field-validator type="email">
+			<message>L'email inserita ${user.email} non è valida</message>
+		</field-validator>
+	</field>
+	
+
+<field name="cliente.cfPiva">
+		<field-validator type="requiredstring">
+		<message> CF/P.IVA Richiesti </message>
+		</field-validator>
+		<field-validator type="stringlength">
+ 			<param name="minLenght">10</param>
+ 			<message>Il numero di telefono inserito non è valido.</message>
+		</field-validator> 
+		<field-validator type="stringlength">
+			<param name="maxLength">16</param>
+			<message>Il campo ammette da 11 a 16 caratteri.</message>
+		</field-validator>
+	</field> 
+
+	<field name="cliente.nome">
+		<field-validator type="requiredstring">
+			<message>Devi inserire il nome.</message>
+		</field-validator>
+		<field-validator type="NameSurname">
+			<message>Nome inserito non valido.</message>
+		</field-validator>
+	</field>
+
+	<field name="cliente.cognome">
+		<field-validator type="requiredstring">
+			<message>Devi inserire il cognome.</message>
+		</field-validator>
+		<field-validator type="NameSurname">
+			<message>Cognome inserito non valido.</message>
+		</field-validator>
+	</field>
+
+	<field name="cliente.telefono">
+		<field-validator type="requiredstring">
+			<message>Devi inserire il telefono.</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLenght">10</param>
+			<message>Il numero di telefono inserito non è valido.</message>
+		</field-validator>
+
+
+	</field>
+
+	<field name="indirizzo.via">
+		<field-validator type="requiredstring">
+			<message>L'indirizzo è necessario.</message>
+		</field-validator>
+	</field>
+<field name="indirizzo.civico">
+		<field-validator type="requiredstring">
+			<message>L'indirizzo è necessario.</message>
+		</field-validator>
+	</field>
+	
+	<field name="accountcliente.password">
+		<field-validator type="requiredstring">
+			<message>L'indirizzo è necessario.</message>
+		</field-validator>
+	</field>
+	
+
+</validators>

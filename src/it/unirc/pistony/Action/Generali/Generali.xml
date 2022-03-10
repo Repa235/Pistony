@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="Generali" namespace="/" extends="struts-default, json-default">
+		<action name="Login"
+			class="it.unirc.pistony.Action.Generali.Login">
+			<!-- <result name="input">/WEB-INF/Generali/index.jsp</result> -->
+			<result type="redirect" name="areaCliente">/Home
+			</result>
+			<result type="redirect" name="areaTitolare">/Home
+			</result>
+			<result name="input">/WEB-INF/Generali/registrazione.jsp
+			</result>
+		</action>
+
+		<action name="RichiediRegistrazione"
+			class="it.unirc.pistony.Action.Generali.RichiediRegistrazione">
+			<result name="success">/WEB-INF/Generali/registrazione.jsp</result>
+		</action>
+
+		<action name="AccessoNegato"
+			class="it.unirc.pistony.Action.Generali.AccessoNegato">
+			<result name="success">/WEB-INF/Generali/accessoNegato.jsp</result>
+		</action>
+
+		<action name="Registrazione"
+			class="it.unirc.pistony.Action.Generali.Registrazione">
+			<interceptor-ref name="timer" />
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="defaultStack" />
+			<result name="success">/WEB-INF/Generali/SuccessoRegistrazioneCliente.jsp
+			</result>
+			<result name="input">/WEB-INF/Generali/registrazione.jsp</result>
+		</action>
+
+		<action name="Shop"
+			class="it.unirc.pistony.Action.Generali.Shop">
+			<result name="success">/WEB-INF/Shop/shop.jsp</result>
+		</action>
+
+		<action name="ShopMobile"
+			class="it.unirc.pistony.Action.Generali.ShopMobile">
+			<result type="json">
+				<param name="includeProperties">
+
+					componenti\[\d+\]\.nome,
+					componenti\[\d+\]\.marca,
+					componenti\[\d+\]\.categoria,
+					componenti\[\d+\]\.prezzo,
+					componenti\[\d+\]\.quantDisponibile
+				</param>
+			</result>
+		</action>
+
+		<action name="ShopByCategoria"
+			class="it.unirc.pistony.Action.Generali.ShopByCategoria">
+			<result name="success">/WEB-INF/Shop/shopByCategoria.jsp</result>
+		</action>
+
+		<action name="PistonyApp"
+			class="it.unirc.pistony.Action.Generali.PistonyApp">
+			<result name="success">/WEB-INF/Generali/pistonyApp.jsp</result>
+		</action>
+
+
+		<action name="Ticket"
+			class="it.unirc.pistony.Action.Generali.Ticket">
+			<interceptor-ref name="token" />
+			<interceptor-ref name="defaultStack" />
+
+			<result name="success">/WEB-INF/Generali/SuccessoTicket.jsp</result>
+			<result name="input">/WEB-INF/Generali/FormTicket.jsp</result>
+			<result name="invalid.token">/HaiSbagliatoBro</result>
+		</action>
+		<action name="RichiediTicket"
+			class="it.unirc.pistony.Action.Generali.RichiediTicket">
+			<result name="success">/WEB-INF/Generali/FormTicket.jsp</result>
+		</action>
+
+
+		<action name="Logout"
+			class="it.unirc.pistony.Action.Generali.Logout">
+			<result type="redirect" name="success">/Home</result>
+			<!-- questa action deve redirectare verso la action home -->
+		</action>
+
+
+
+	</package>
+
+
+
+
+
+
+	<package name="Generali" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="error">/WEB-INF/Generali/errore.jsp</result>
+			<result type="redirect" name="login"> /RichiediRegistrazione </result>
+		</global-results>
+
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+
+
+	</package>
+
+	<!-- <package name="GeneraliSecure" namespace="/Generali/secure" extends=""> 
+		<interceptors> <interceptor name="authenticationInterceptor" class="it.unirc.pistony.Action.Generali.util.authenticationInterceptor"></interceptor> 
+		<interceptor-stack name="secureStack"> <interceptor-ref name="authenticationInterceptor" 
+		/> <interceptor-ref name="defaultStack" /> </interceptor-stack> </interceptors> 
+		<default-interceptor-ref name="secureStack" /> <global-results> <result name="login" 
+		type="redirect">/index.jsp</result> </global-results> <action name="SuccessoLogin" 
+		class="it.unirc.pistony.Action.Generali.SuccessoLogin"> <result name="success">/SuccessoLoginCliente.jsp</result> 
+		</action> </package> -->
+</struts>

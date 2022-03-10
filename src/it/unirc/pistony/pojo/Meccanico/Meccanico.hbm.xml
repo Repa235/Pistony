@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.Meccanico">
+	<class name="Meccanico" table="meccanico">
+
+		<id name="idmeccanico" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="nome" type="string" length="20" />
+		<property name="cognome" type="string" length="20" />
+		<property name="indirizzo" type="string" length="30" />
+		<property name="settore" type="string" length="15" />
+		<property name="dataAssunzione" type="date" length="10" />
+		<property name="tipoContratto" type="string" length="30" />
+
+
+		<set name="interventi" table="meccanico_intervento" cascade="save-update" inverse="true"> 
+		<key column="idmeccanico"/> 
+		<many-to-many column="idintervento" class="it.unirc.pistony.pojo.Intervento.Intervento"/> </set>
+
+	</class>
+</hibernate-mapping>
+

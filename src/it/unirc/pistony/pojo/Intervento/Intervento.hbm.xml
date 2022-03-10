@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.unirc.pistony.pojo.Intervento">
+	<class 	name="Intervento" table="intervento">
+		<id name="idintervento" type="java.lang.Integer">
+			<column name="idintervento" />
+			<generator class="assigned" />
+		</id>
+
+
+		<many-to-one class="it.unirc.pistony.pojo.Prenota.Prenota" name="prenota" not-null="true" cascade="save-update" lazy="proxy" >
+			<column name="idprenotazione" precision="10" scale="0"/>
+		</many-to-one>
+
+		<property name="prezzo" type="double">
+			<column name="prezzo" precision="10" />
+		</property>
+		<property name="dataIntervento" type="date">
+			<column length="10" name="data_intervento" />
+		</property>
+      
+        
+		<set  name="meccanici" table="meccanico_intervento" cascade="save-update">
+			<key column="idintervento"/>
+			
+			<many-to-many column="idmeccanico" class="it.unirc.pistony.pojo.Meccanico.Meccanico" />
+			
+		</set>
+
+		<union-subclass name="Modifica" extends="Intervento">
+			<property name="tipo_di_modifica" type="string"></property>
+			<property name="omologazione" type="boolean"></property>
+		</union-subclass>
+		
+		
+		<union-subclass name="Riparazione" extends="Intervento">
+			<property name="tipo_di_riparazione" type="string"></property>
+			<property name="tagliando" type="boolean"></property>
+		</union-subclass>
+
+	</class>
+</hibernate-mapping>

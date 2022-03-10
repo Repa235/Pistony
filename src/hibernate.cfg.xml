@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/test</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<property name="connection.useSSL">false</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">false</property> 
+		<property name="connection.serverTimezone">Europe/Rome</property>
+
+
+
+		<mapping
+			resource="it/unirc/pistony/pojo/Intervento/Intervento.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Prenota/Prenota.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Componente/Componente.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Accountcliente/Accountcliente.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Cliente/Cliente.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Meccanico/Meccanico.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Acquisto/Acquisto.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/titolare/Titolare.hbm.xml" />
+		<mapping
+			resource="it/unirc/pistony/pojo/Accounttitolare/Accounttitolare.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

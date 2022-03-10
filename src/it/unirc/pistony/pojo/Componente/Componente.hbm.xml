@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.Componente">
+	<class name="Componente" table="componente">
+
+		<id name="idcomponente" type="int">
+		<generator class="increment" />
+		</id>
+		
+
+		<property name="categoria" type="java.lang.Integer" />
+
+		<property name="marca" type="string" length="45" />
+
+		<property name="quantDisponibile" type="java.lang.Integer" />
+
+		<property name="nome" type="string" length="45" />
+
+		<property name="prezzo" type="double" />
+
+		<set name="acquisti" cascade="save-update">
+			<key column="idcomponente" />
+			<one-to-many
+				class="it.unirc.pistony.pojo.Acquisto.Acquisto" />
+		</set>
+	</class>
+</hibernate-mapping>

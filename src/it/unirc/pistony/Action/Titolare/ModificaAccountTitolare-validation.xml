@@ -1,0 +1,68 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<!-- apri con il tag validator -->
+<validators>
+
+	<!-- specifica i campi che vuoi validare con field name -->
+
+<field name="accounttitolare.password">
+		<field-validator type="requiredstring">
+			<message>La password è richiesta</message>
+		</field-validator>
+		<field-validator type="PasswordStrenght">
+			<message>la password deme contenere almeno 8 caratteri tra: lettere (maiuscole e minuscole), numeri e caratteri speciali.
+			</message>
+		</field-validator>
+	</field>
+	
+
+
+	<field name="accounttitolare.email">
+		<field-validator type="requiredstring">
+			<message>Devi inserire l'email.</message>
+		</field-validator>
+
+		<field-validator type="email">
+			<message>L'email inserita ${user.email} non è valida</message>
+		</field-validator>
+	</field>
+	
+<field name="titolare.nome">
+		<field-validator type="requiredstring">
+			<message key="nome.required"/>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<message>Il nome inserito non è abbastanza lungo
+			</message>
+		</field-validator>
+		<field-validator type="NameSurname">
+			<message>Inserisci un nome valido
+			</message>
+		</field-validator>
+	</field>
+
+	<field name="titolare.cognome">
+		<field-validator type="requiredstring">
+			<message key="cognome.required"/>
+		</field-validator>
+		<field-validator type="NameSurname">
+			<message>Questo cognome non è valido
+			</message>
+		</field-validator>
+	</field>
+	
+	<field name="titolare.indirizzo.via">
+		<field-validator type="requiredstring">
+			<message> Inserire indirizzo </message>
+		</field-validator>
+	</field>
+<field name="titolare.indirizzo.civico">
+		<field-validator type="requiredstring">
+			<message> Inserire numero civico </message>
+		</field-validator>
+	</field>
+
+
+</validators>

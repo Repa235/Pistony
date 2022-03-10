@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="Titolare" namespace="/AreaTitolare"
+		extends="struts-default">
+
+		<interceptors>
+			<interceptor name="InterceptorTitolare"
+				class="it.unirc.pistony.util.InterceptorTitolare" />
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="InterceptorTitolare" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="secureStack" />
+
+		<global-results>
+			<result name="genericException">/WEB-INF/AreaTitolare/errore.jsp</result>
+			<result type="redirect" name="login">/AccessoNegato</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="genericException" />
+		</global-exception-mappings>
+
+
+
+		<action name="ProfiloTitolare"
+			class="it.unirc.pistony.Action.Titolare.ProfiloTitolare">
+			<result name="success">/WEB-INF/AreaTitolare/areaTitolare.jsp
+			</result>
+		</action>
+
+		<action name="GestioneDipendente"
+			class="it.unirc.pistony.Action.Titolare.GestioneDipendente">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneDipendenti.jsp
+			</result>
+		</action>
+		<action name="AggiungiDipendenti"
+			class="it.unirc.pistony.Action.Titolare.AggiungiDipendenti">
+			<result type="redirect" name="success">/AreaTitolare/GestioneDipendente
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/gestioneDipendenti.jsp
+			</result>
+
+		</action>
+
+		<action name="EliminaDipendente"
+			class="it.unirc.pistony.Action.Titolare.EliminaDipendente">
+			<result name="input">/WEB-INF/AreaTitolare/gestioneDipendente.jsp
+			</result>
+			<result type="redirect" name="success">/AreaTitolare/GestioneDipendente
+			</result>
+		</action>
+
+		<action name="VisualizzaClienti"
+			class="it.unirc.pistony.Action.Titolare.VisualizzaClienti">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneClienti.jsp
+			</result>
+		</action>
+
+
+		<action name="GestioneProdotti"
+			class="it.unirc.pistony.Action.Titolare.GestioneProdotti">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneProdotti.jsp
+
+			</result>
+		</action>
+
+		<action name="AggiungiProdotti"
+			class="it.unirc.pistony.Action.Titolare.AggiungiProdotti">
+			
+			<interceptor-ref name="fileUpload" />
+			<interceptor-ref name="token" />
+			<interceptor-ref name="timer" />
+			
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="defaultStack" />
+<!-- 				<param name="fileUpload.maximumSize">1024000</param>
+			</interceptor-ref> -->
+			
+			
+			<result name="invalid.token">/WEB-INF/AreaTitolare/errore.jsp</result>
+			<result type="redirect" name="success">/AreaTitolare/GestioneProdotti
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/gestioneProdotti.jsp
+			</result>
+			<result name="error">/WEB-INF/AreaTitolare/errore.jsp
+			</result>
+		</action>
+
+
+		<action name="EliminaProdotto"
+			class="it.unirc.pistony.Action.Titolare.EliminaProdotto">
+			<result name="input">/WEB-INF/AreaTitolare/gestioneProdotti.jsp
+			</result>
+			<result type="redirect" name="success">/AreaTitolare/GestioneProdotti
+			</result>
+		</action>
+
+		<action name="RichiediModificaProdotto"
+			class="it.unirc.pistony.Action.Titolare.RichiediModificaProdotto">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneProdotti_conmodifica.jsp
+			</result>
+			<result type="redirect" name="input">/AreaTitolare/GestioneProdotti
+			</result>
+		</action>
+
+		<action name="ModificaProdotto"
+			class="it.unirc.pistony.Action.Titolare.ModificaProdotto">
+			<result type="redirect" name="success">/AreaTitolare/GestioneProdotti
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/gestioneProdotti_conmodifica.jsp
+			</result>
+		</action>
+
+		<action name="RichiediLoginTitolare"
+			class="it.unirc.pistony.Action.Titolare.RichiediLoginTitolare">
+			<result name="success">/WEB-INF/AreaTitolare/loginTitolare.jsp</result>
+		</action>
+
+		<action name="LoginTitolare"
+			class="it.unirc.pistony.Action.Titolare.LoginTitolare">
+			<result type="redirect" name="areaTitolare">/AreaTitolare/ProfiloTitolare
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/loginTitolare.jsp
+			</result>
+		</action>
+
+		<action name="RichiediModificaTitolare"
+			class="it.unirc.pistony.Action.Titolare.RichiediModificaTitolare">
+			<result name="success">/WEB-INF/AreaTitolare/modificaTitolare.jsp
+			</result>
+			<!-- <result type="redirect" name="input">/AreaTitolare/GestioneTitolare -->
+			<!-- </result> -->
+		</action>
+
+		<action name="ModificaTitolare"
+			class="it.unirc.pistony.Action.Titolare.ModificaTitolare">
+			<result type="redirect" name="success">/AreaTitolare/RichiediLoginTitolare
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/modificaTitolare.jsp
+			</result>
+		</action>
+
+		<action name="ModificaAccountTitolare"
+			class="it.unirc.pistony.Action.Titolare.ModificaAccountTitolare">
+			<result type="redirect" name="success">/AreaTitolare/RichiediLoginTitolare
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/modificaTitolare.jsp
+			</result>
+		</action>
+
+		<action name="RichiediModificaDipendente"
+			class="it.unirc.pistony.Action.Titolare.RichiediModificaDipendente">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneDipendenti_conmodifica.jsp
+			</result>
+			<result type="redirect" name="input">/AreaTitolare/GestioneDipendente
+			</result>
+		</action>
+
+		<action name="ModificaDipendente"
+			class="it.unirc.pistony.Action.Titolare.ModificaDipendente">
+			<result type="redirect" name="success">/AreaTitolare/GestioneDipendente
+			</result>
+			<result name="input">/WEB-INF/AreaTitolare/gestioneDipendenti_conmodifica.jsp
+			</result>
+		</action>
+
+		<action name="VisualizzaPrenotazioni"
+			class="it.unirc.pistony.Action.Titolare.VisualizzaPrenotazioni">
+			<result name="success">/WEB-INF/AreaTitolare/gestionePrenotazioni.jsp
+			</result>
+		</action>
+
+		<action name="VisualizzaRiparazioni"
+			class="it.unirc.pistony.Action.Titolare.VisualizzaRiparazioni">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneRiparazioni.jsp
+			</result>
+		</action>
+
+		<action name="VisualizzaModifiche"
+			class="it.unirc.pistony.Action.Titolare.VisualizzaModifiche">
+			<result name="success">/WEB-INF/AreaTitolare/gestioneModifiche.jsp
+			</result>
+		</action>
+
+
+		<action name="RIchiediInterventoRiparazione"
+			class="it.unirc.pistony.Action.Titolare.RichiediInterventoRiparazione">
+			<result name="success">/WEB-INF/AreaTitolare/richiediInterventoRiparazione.jsp
+			</result>
+		</action>
+
+		<action name="AggiungiInterventoRiparazione"
+			class="it.unirc.pistony.Action.Titolare.AggiungiInterventoRiparazione">
+			<result type="redirect" name="success">/AreaTitolare/VisualizzaPrenotazioni
+			</result>
+			<result name="input"> /WEB-INF/AreaTitolare/richiediInterventoRiparazione.jsp </result>
+		</action>
+
+		<action name="RIchiediInterventoModifica"
+			class="it.unirc.pistony.Action.Titolare.RichiediInterventoModifica">
+			<result name="success">/WEB-INF/AreaTitolare/richiediInterventoModifica.jsp
+			</result>
+		</action>
+
+		<action name="AggiungiInterventoModifica"
+			class="it.unirc.pistony.Action.Titolare.AggiungiInterventoModifica">
+			<result type="redirect" name="success">/AreaTitolare/VisualizzaPrenotazioni
+			</result>
+		</action>
+
+		<action name="VisualizzaOrdini"
+			class="it.unirc.pistony.Action.Titolare.VisualizzaOrdini">
+			<result name="success">/WEB-INF/AreaTitolare/visualizzaOrdini.jsp
+			</result>
+		</action>
+
+		<action name="VisualizzaSchedaOrdine"
+			class="it.unirc.pistony.Action.Titolare.VisualizzaSchedaOrdine">
+			<result name="success">/WEB-INF/AreaTitolare/visualizzaSchedaOrdine.jsp
+			</result>
+		</action>
+
+
+	</package>
+</struts>

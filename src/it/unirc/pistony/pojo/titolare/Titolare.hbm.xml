@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:46:31 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.titolare">
+
+	<class name="Titolare" table="titolare">
+
+		<id name="idtitolare" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="nome" type="string" length="20" />
+
+		<property name="cognome" type="string" length="20" />
+
+
+		<component name="indirizzo" class="it.unirc.pistony.pojo.titolare.Indirizzo">
+			<property name="via" column="indirizzo_via" type="string" />
+			<property name="civico" column="indirizzo_civico"
+				type="string" />
+		</component>
+
+		<one-to-one class="it.unirc.pistony.pojo.Accounttitolare.Accounttitolare" cascade="all" name="accounttitolare" />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,658 @@
+/* INIZIO CSS HEADER FINO A RIGA 160 */
+
+
+.bodyLogin {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.buttonLogin {
+	background-color: #3498DB;
+	color: white;
+	padding: 2px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+.buttonLoginNav {
+	background-color: #1C1C1C00;
+	color: white;
+	padding: 2px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+.buttonLogin:hover {
+	opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtnLogin {
+	width: auto;
+	padding: 10px 18px;
+	background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainerLogin {
+	text-align: center;
+	margin: 24px 0 12px 0;
+	position: relative;
+}
+
+.img.avatarLogin {
+	width: 40%;
+	border-radius: 50%;
+}
+
+.containerLogin {
+	padding: 16px;
+}
+.containerTicket {
+	padding: 16px;
+}
+
+span.pswLogin {
+	float: right;
+	padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modalLogin {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	padding-top: 60px;
+}
+.modalTicket {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+	padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-contentLogin {
+	background-color: #fefefe;
+	margin: 5% auto 15% auto;
+	/* 5% from the top, 15% from the bottom and centered */
+	border: 1px solid #888;
+	width: 33%; /* Could be more or less, depending on screen size */
+}
+.modal-contentTicket {
+	background-color: #fefefe;
+	margin: 5% auto 15% auto;
+	/* 5% from the top, 15% from the bottom and centered */
+	border: 1px solid #888;
+	width: 33%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.closeLogin {
+	position: absolute;
+	right: 25px;
+	top: 0;
+	color: #000;
+	font-size: 35px;
+	font-weight: bold;
+}
+.closeLTicket {
+	position: absolute;
+	right: 25px;
+	top: 0;
+	color: #000;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+.containerLogin {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: end;
+}
+.containerTicket {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: end;
+}
+
+.closeLogin:hover, .closeLogin:focus {
+	color: red;
+	cursor: pointer;
+}
+
+.closeTicket:hover, .closeTicket:focus {
+	color: red;
+	cursor: pointer;
+}
+/* Add Zoom Animation */
+.animateLogin {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s
+}
+.animateTicket {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s
+}
+
+@webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)
+}
+
+to {
+	-webkit-transform: scale(1)
+}
+
+}
+@keyframes animatezoom {
+	from {transform: scale(0)
+}
+
+to {
+	transform: scale(1)
+}
+
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+	span.pswLogin {
+		display: block;
+		float: none;
+	}
+	.cancelbtnLogin {
+		width: 100%;
+	}
+}
+
+.labelLogin {
+	display: block;
+	font-size: 0.9em;
+	font-weight: 700;
+	margin: 0 0 1em 0;
+	text-align: center;
+}
+
+
+/* FINE CSS HEADER */
+
+
+
+
+/* SLIDESHOW */
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+ .bannerSlide {
+ border-left-width: 0px;
+border-left-style: solid;
+padding-left: 0em;
+border-right-width: 0px;
+border-right-style: solid;
+margin-right: -4%;
+padding-top: 11em;}
+
+/* FINE SLIDESHOW*/
+
+  side-box{
+    	position: fixed;
+    	right: 90px;
+    	top: 50px;
+    	width:170px;
+    	height: 45px;
+    	background-color: #FFFFFF;
+    	display: flex;
+    	justify-content:center;
+    	align-items: center;
+    	border-radius: 10% 10% 10% 10% / 50% 50% 50% 50%;
+    	box-shadow: 2px 2px 30px rgba(167, 158, 245, 0.2);
+    	box-sizing: border-box;
+    	z-index: 1;
+    	border:1px solid rgba(167, 158, 245, 0.1);
+    }
+    
+      .m-img{
+        position:absolute;
+        left:15%;
+        top: 50%;
+        transform: translate(-15%,-50%);
+    }
+    .m-img img{
+        height:450px;
+    }
+ 
+ 
+    .m-btn{
+    	width:150px;
+    	height: 40px;
+    	background-color: #2f2e41;
+    	box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	border-radius: 10% 10% 10% 10% / 50% 50% 50% 50%;
+    	margin-top: 20px;
+    	color:#fff;
+    	font-family: calibri;
+    	font-weight: 600;
+    	letter-spacing: 0.5px;
+    	font-size: 1rem;
+    }
+    .m-btn:hover{
+    	color:#FFFFFF;
+    	background-color: #6e64ff;
+    	transition: all ease 0.5s;
+    }
+
+    .product{
+    	width: 98%;
+background: #afafaf0d;    	box-shadow: 2px 2px 30px rgba(167, 158, 245, 0.2);
+    	display: flex;
+    	margin: auto;
+    	flex-direction: column;
+    	align-items: center;
+    	padding:40px 20px;
+    	position: relative;
+    	background-image: url("../images/poduct bg.png");
+    	background-size:1000px;
+    	background-position: center;
+    	
+     
+    }
+     
+     
+    .p-heading{
+    	margin:20px;
+    	text-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+    }
+    .p-heading h3{
+    	font-family: myriad pro;
+    	font-weight: 700;
+    	letter-spacing: 2px;
+    	text-align: center;
+    	font-size:2rem;
+    	color:#323543;
+     
+    }
+    .p-heading h3 font{
+    	color:#8c84f9;
+    }
+    .product-container{
+    margin-top: 0px;
+margin-bottom: 0px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-wrap: wrap;
+    	margin: 10px 0px;
+    	width:100%;
+    }
+    .p-box{
+    	width:250px;
+    	height: 330px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-direction: column;
+    	border-radius: 4px;
+    	position: relative;
+    	margin: 10px 30px;
+    }
+    .p-box img{
+    	height:180px;
+    }
+    .p-box p{
+    	color:#1c1c1c;
+    	font-size: 0.9rem;
+    	letter-spacing: 0.5;
+    }
+    
+    .price{
+    	color:#2c2c2c;
+    	font-family: poppins;
+    	font-size: 1rem;;
+    }
+    .buy-btn{
+    	position: absolute;
+    	width:140px;
+    	height: 40px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	font-family:calibri;
+    	left: 50%;
+    	bottom: -20px;
+    	transform: translateX(-50%);
+    	border-radius: 15% 15% 15% 15% / 50% 50% 50% 50%;
+        background: linear-gradient(120deg,#1abc9c 20%,#3498db);    	
+        color:#FFFFFF;
+    	display: none;
+    	animation: fade 0.2s;
+    }
+    .p-box:hover .buy-btn{
+    	display: flex;
+    }
+    .p-box:hover{
+    	box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    	background-color:#1C1C1C00;
+    }
+    .p-box:hover .price{
+    	color:#1abc9c;
+    	transition: all ease 0.2s;
+    }
+     
+    @keyframes fade{
+    	0%{
+    		opacity: 0;
+    	}
+    	100%{
+    		opacity: 1;
+    	}
+    }
+     
+    .our-brand{
+    	display: flex;
+    	width: 85%;
+    	margin:30px auto;
+    	justify-content: space-around;
+    	align-items: center;
+    	padding:30px;
+    }
+    .brand-text{
+    	width:40%;
+    	font-family:myriad pro;}
+    .brand-img{
+    	height: 500px;
+    	width: 50%;
+    	box-sizing: border-box;
+    }
+    .brand-img img{
+    	width:100%;
+    	height: 100%;
+    	object-fit:contain;
+    }
+    .brand-text h3{
+    	color:#333333;
+    	font-weight: 700;
+    	font-size:3rem;
+    	margin:0px;
+    }
+    .brand-text h4{
+    	color: #333333;
+    	font-weight: 400;
+    	font-size:2rem;
+    	margin:0px;
+    }
+    .brand-text font{
+    	color:#8d83f9;
+    }
+    .brand-text p{
+    	font-size: 1rem;
+    	color:#bdbdbd;
+    	letter-spacing: 0.5px;
+    }
+    @media(max-width:1230px){
+ 
+    .our-brand{
+    	flex-direction:column-reverse;
+    }
+    .brand-text,.brand-img{
+    	width:100%;
+    }
+    .brand-img{
+    	height:300px;
+    	margin:20px;
+    }
+    }
+
+    	.side-box{
+    		right:30px;
+    		top:30px;
+    	}
+    	 .m-btn{
+    		 margin:0px 20px;
+    	 }
+    	 .product{
+    		 width:100%;
+    		 height: 100%;
+    	 }
+    	 .p-box{
+    		margin:20px 10px;
+    		padding:10px 20px;
+    		 width:100%;
+    		 text-align: center;
+    	 }
+    	     .p-box img{
+    	height:180px;
+    	right: 110%;
+    	margin-left:0%;
+    	margin-top: 33%;
+    }
+      .m-img{
+        position:absolute;
+        left:15%;
+        top: 50%;
+        transform: translate(-15%,-50%);
+    }
+    .m-img img{
+        height:450px;
+    }
+    
+    .c-box{
+    margin-bottom: 0px;
+margin-top: 0px;
+    width:100%;
+    	height: 330px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-direction: column;
+    	border-radius: 4px;
+    	position: relative;
+    	margin: 10px 30px;
+ 
+    
+    
+    }
+    .box-img{
+        width:250px;
+    	height: 330px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-direction: column;
+    	border-radius: 4px;
+    	position: relative;
+    	margin: 10px 30px;
+    	right: 33%;
+top: 66%;    
+margin-bottom: 37px;
+    }
+      .box-desc{
+        width:250px;
+    	height: 330px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-direction: column;
+    	border-radius: 4px;
+    	position: relative;
+    	margin: 10px 30px;
+    	right: 33%;
+    	left: 0px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+margin-top: -56px;
+border-top-width: 0px;
+border-top-style: solid;
+border-bottom-width: 0px;
+border-bottom-style: solid;
+    
+    }
+    .box-button{
+        width:250px;
+    	height: 330px;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	flex-direction: column;
+    	border-radius: 4px;
+    	position: relative;
+    	margin: 10px 30px;
+left: 33%;
+bottom: 107%;
+margin-top: 92px;
+    
+    }
+
+regLogin{
+	width: 100%;
+    text-align: center;
+    margin-top: 10%;
+}
+    
+    
+/*     shop page */
+
+.grid-container-shop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header header header"
+    "img img img img"
+    "category-box prodotti prodotti offerte";
+}
+.header { grid-area: header; }
+.img-shop { 
+	grid-area: img;
+	margin-bottom: -30px;
+    margin-top: 0px; 
+    }
+.category-box { grid-area: category-box; }
+.prodotti { grid-area: prodotti; }
+.offerte { grid-area: offerte; }
+    
+/* shop table   */
+

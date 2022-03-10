@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:53:34 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.Accountcliente">
+	<class name="Accountcliente" table="accountcliente">
+		<id name="idcliente" type="int">
+			<generator class="foreign">
+				<param name="property">cliente</param>
+			</generator>
+		</id>
+
+		<property name="email" type="string" />
+
+		<property name="password" type="string" length="10" />
+
+		<one-to-one class="it.unirc.pistony.pojo.Cliente.Cliente"
+			name="cliente" constrained="true" cascade="save-update" lazy="false" />
+
+
+	</class>
+</hibernate-mapping>

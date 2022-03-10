@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 17 dic 2020, 16:46:31 by Hibernate Tools 5.4.21.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="it.unirc.pistony.pojo.Accounttitolare">
+	<class name="Accounttitolare" table="accounttitolare">
+		<id name="idtitolare" type="java.lang.Integer">
+			<generator class="foreign">
+				<param name="property">titolare</param>
+			</generator>
+
+		</id>
+
+		<one-to-one class="it.unirc.pistony.pojo.titolare.Titolare" name="titolare" constrained="true" cascade="save-update" />
+
+		<property name="email" type="string" />
+
+		<property name="password" type="string" />
+
+	</class>
+</hibernate-mapping>
